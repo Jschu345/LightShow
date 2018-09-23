@@ -33,13 +33,13 @@ uint8_t brightness = 255;
 uint8_t topbar = 0;
 uint8_t bottombar = 0;
 byte whichShow = 0;
-byte numShows = 5;
+byte numShows = 6;
 byte btnPushed;
 void loop()
 {
   digitalWrite(1, LOW);
   digitalWrite(3,HIGH);
-  int potread = analogRead(14);
+  //int potread = analogRead(14);
   //brightness = potread/4;
   //Serial.println(potread);
   digitalWrite(3,LOW);
@@ -60,6 +60,9 @@ void loop()
   }
   else if (whichShow % numShows == 4) {
     whiteout();
+  }
+  else if (whichShow % numShows == 5) {
+    setBlack();
   }
 
   btnPushed = digitalRead(btn);
